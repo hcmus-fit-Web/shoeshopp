@@ -2,7 +2,7 @@ const  mongoose = require('mongoose');
 // const slugify = require('slugify');
 
 
-const productSchema = mongoose.Schema({
+const singleSchema = mongoose.Schema({
 
     productid: {
         type : String,
@@ -28,5 +28,5 @@ const productSchema = mongoose.Schema({
     }
 })
 
-const Product = mongoose.model('product',productSchema,'product');
-module.exports = Product;
+const SingleProduct = mongoose.model('single',singleSchema,'product');
+module.exports = SingleProduct;

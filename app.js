@@ -3,16 +3,15 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var mongoose = require('mongoose');
 
-var indexRouter = require('./routes/index');
+var indexRouter = require('./Component/index/index');
 var usersRouter = require('./routes/users');
 var checkoutRouter = require('./routes/checkout');
 var contactRouter = require('./routes/contact');
 var productsRouter = require('./Component/product/products');
 var registerRouter = require('./routes/register');
 var signupRouter = require('./routes/signup');
-var singleRouter = require('./routes/single');
+var singleRouter = require('./Component/Single/single');
 
 var app = express();
 

@@ -29,17 +29,27 @@
                     <!-- end normal -->
                 <!-- end normal -->
                 <div class="quick-view">
-                    <a href="/single">Quick view</a>
+                    <a href="/single/{{_id}}">Quick view</a>
                 </div>
             </div>
             {{/each}}
 
-
-
-
-
-
             <div class="clearfix"></div>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="/products?page=1">1</a></li>
+                    <li class="page-item"><a class="page-link" href="/products?page=2">2</a></li>
+                    <li class="page-item"><a class="page-link" href="/products?page=3">3</a></li>
+                </ul>
+            </nav>
+
+
+        </div>
+
+        <div>
+            <ul class="pagination">
+
+            </ul>
         </div>
         <div class="col-md-3 grid-details">
             <div class="grid-addon">
@@ -49,7 +59,7 @@
                         <div class="tab1">
                             <ul class="place">
                                 <li class="sort">Shoes</li>
-                                <li class="by"><img src="./images/do.png" alt=""></li>
+                                <li class="by"><img src="/images/do.png" alt=""></li>
                                 <div class="clearfix"> </div>
                             </ul>
                             <div class="single-bottom">
@@ -62,7 +72,7 @@
                         <div class="tab2">
                             <ul class="place">
                                 <li class="sort">Clothing</li>
-                                <li class="by"><img src="./images/do.png" alt=""></li>
+                                <li class="by"><img src="/images/do.png" alt=""></li>
                                 <div class="clearfix"> </div>
                             </ul>
                             <div class="single-bottom">
@@ -75,7 +85,7 @@
                         <div class="tab3">
                             <ul class="place">
                                 <li class="sort">Gear</li>
-                                <li class="by"><img src="./images/do.png" alt=""></li>
+                                <li class="by"><img src="/images/do.png" alt=""></li>
                                 <div class="clearfix"> </div>
                             </ul>
                             <div class="single-bottom">
@@ -85,6 +95,8 @@
                             </div>
                         </div>
                         <!--script-->
+<!--                        <script src='/js/main.js'></script>-->
+<!--                        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>-->
                         <script>
                             $(document).ready(function(){
                                 $(".tab1 .single-bottom").hide();
@@ -148,7 +160,7 @@
                     </div>
                 </section>
                 <!---->
-                <link rel="stylesheet" type="text/css" href="/css/jquery-ui.css">
+<!--                <link rel="stylesheet" type="text/css" href="/css/jquery-ui.css">-->
                 <script type='text/javascript'>//<![CDATA[
                 $(window).load(function(){
                     $( "#slider-range" ).slider({

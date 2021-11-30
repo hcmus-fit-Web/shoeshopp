@@ -1,7 +1,7 @@
 
-const Product = require('../product/productModel');
-// const {skips} = require("debug");
-const PAGE_SIZE = 6;
+const Index = require('./indexModel');
+const PAGE_SIZE = 3;
+
 exports.list = (page) => {
 
     return new Promise((resolve,reject) => {
@@ -10,7 +10,7 @@ exports.list = (page) => {
             page = parseInt(page);
             if(page<1) page = 1;
             var skip = (page - 1) * PAGE_SIZE;
-            Product.find({}).skip(skip).limit(PAGE_SIZE).lean()
+            Index.find({}).skip(skip).limit(PAGE_SIZE).lean()
                 .then(data => {
 
                     resolve(data)
@@ -21,7 +21,7 @@ exports.list = (page) => {
 
             page = 1;
             var skip = (page - 1) * PAGE_SIZE;
-            Product.find({}).skip(skip).limit(PAGE_SIZE).lean()
+            Index.find({}).skip(skip).limit(PAGE_SIZE).lean()
                 .then(data => {
 
                     resolve(data)
@@ -31,4 +31,3 @@ exports.list = (page) => {
         }
     })
 }
-
