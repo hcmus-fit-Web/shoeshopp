@@ -149,13 +149,9 @@
                     <h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>DISCOUNTS</h4>
                     <div class="row row1 scroll-pane">
                         <div class="col col-4">
-                            <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Upto - 10% (20)</label>
-                        </div>
-                        <div class="col col-4">
-                            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>40% - 50% (5)</label>
-                            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>30% - 20% (7)</label>
-                            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>10% - 5% (2)</label>
-                            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Other(50)</label>
+                           {{#each discount}}
+                            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>{{Discount}}</label>
+                           {{/each}}
                         </div>
                     </div>
                 </section>
@@ -180,16 +176,9 @@
                     <h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Type</h4>
                     <div class="row row1 scroll-pane">
                         <div class="col col-4">
-                            <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Air Max (30)</label>
-                        </div>
-                        <div class="col col-4">
-                            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Armagadon   (30)</label>
-                            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Helium (30)</label>
-                            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Kyron     (30)</label>
-                            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Napolean  (30)</label>
-                            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Foot Rock   (30)</label>
-                            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Radiated  (30)</label>
-                            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Spiked  (30)</label>
+                            {{#each type}}
+                                <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>{{nameType}}   (30)</label>
+                            {{/each}}
                         </div>
                     </div>
                 </section>
