@@ -1,24 +1,21 @@
-
-
 const  Type = require('../product/typeModel');
 const Product = require('../product/productModel');
 const  Discount  = require('../product/discountModel');
 const  Brand  = require('../product/brandModel');
 
 const PAGE_SIZE = 6;
-exports.list = (page) => {
+exports.list = (page,query) => {
 
     return new Promise((resolve,reject) => {
 
         if (page) {
+            
             page = parseInt(page);
             if(page<1) page = 1;
             var skip = (page - 1) * PAGE_SIZE;
             Product.find({}).skip(skip).limit(PAGE_SIZE).lean()
                 .then(data => {
-
                     resolve(data)
-
                 })
                 .catch(err => reject(new Error(err)))
         } else {
@@ -27,9 +24,7 @@ exports.list = (page) => {
             var skip = (page - 1) * PAGE_SIZE;
             Product.find({}).skip(skip).limit(PAGE_SIZE).lean()
                 .then(data => {
-
                     resolve(data)
-
                 })
                 .catch(err => reject(new Error(err)))
         }

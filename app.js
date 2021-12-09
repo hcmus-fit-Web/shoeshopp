@@ -4,14 +4,20 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+const session = require('express-session');
+
 var indexRouter = require('./Component/index/index');
 var usersRouter = require('./routes/users');
 var checkoutRouter = require('./routes/checkout');
 var contactRouter = require('./routes/contact');
 var productsRouter = require('./Component/product/products');
-var registerRouter = require('./routes/register');
-var signupRouter = require('./routes/signup');
+var signupRouter = require('./routes/register');
+var loginRouter = require('./Component/auth/user');
+
 var singleRouter = require('./Component/Single/single');
+
+const passport = require("./passport");
+const {loggedInUserGuard} = require("./middelware/LoggedInUserGuard");
 
 var app = express();
 
@@ -25,15 +31,25 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+app.use(session({secret: process.env.SESSION_SECRET }));
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(function (req,res,next){
+  res.locals.user = req.user;
+  next();
+
+})
+
 app.use('/', indexRouter);
+app.use('/', loginRouter);
 app.use('/users', usersRouter);
-app.use('/checkout', checkoutRouter);
+app.use('/checkout', loggedInUserGuard ,checkoutRouter);
 app.use('/contact', contactRouter);
 app.use('/products', productsRouter);
-app.use('/register', registerRouter);
 app.use('/signup', signupRouter);
 app.use('/single', singleRouter);
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

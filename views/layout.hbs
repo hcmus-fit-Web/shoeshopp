@@ -37,8 +37,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <a href="/">SHOE-SHOPP</a>
             </div>
             <div class="login-bars">
-                <a class="btn btn-default log-bar" href="/register" role="button">Sign up</a>
-                <a class="btn btn-default log-bar" href="/signup" role="button">Login</a>
+                {{#if user}}
+                    <a class="btn btn-default log-bar" href="/info" role="button">Info</a>
+                    <a class="btn btn-default log-bar" href="/logout" role="button">Logout</a>
+                {{else}}
+                    <a class="btn btn-default log-bar" href="/signup" role="button">Sign up</a>
+                    <a class="btn btn-default log-bar" href="/login" role="button">Login</a>
+                {{/if}}
+
                 <div class="cart box_1">
                     <a href="/checkout">
                         <h3>

@@ -935,7 +935,7 @@ input#amount {
 .single-bottom a p:hover{
     color: #fa5400;
 }
-/*--login-css--*/
+/*--auth-css--*/
 .login-right h3, .log h3 {
     margin: 0;
     font-size: 28px;
